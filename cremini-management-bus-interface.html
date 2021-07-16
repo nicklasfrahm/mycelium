@@ -1,0 +1,1694 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://mykil.io/cremini-management-bus-interface.html">
+      
+      <link rel="icon" href="assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.3">
+    
+    
+      
+        <title>Management bus interface - Mykilio</title>
+      
+    
+    
+      <link rel="stylesheet" href="assets/stylesheets/main.e35208c4.min.css">
+      
+        
+        <link rel="stylesheet" href="assets/stylesheets/palette.ef6f36e2.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#009485">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="assets/css/home.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="teal" data-md-color-accent="">
+  
+    
+    <script>function __prefix(e){return new URL(".",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#management-bus-interface" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="." title="Mykilio" class="md-header__button md-logo" aria-label="Mykilio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Mykilio
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Management bus interface
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/nicklasfrahm/mykilio/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nicklasfrahm/mykilio
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="index.html" class="md-tabs__link">
+      Home
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="mykilio-overview.html" class="md-tabs__link">
+        Mykilio
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="cremini-overview.html" class="md-tabs__link md-tabs__link--active">
+        Cremini
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="primo-overview.html" class="md-tabs__link">
+        Primo
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="contributing.html" class="md-tabs__link">
+      Contributing
+    </a>
+  </li>
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="." title="Mykilio" class="md-nav__button md-logo" aria-label="Mykilio" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Mykilio
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/nicklasfrahm/mykilio/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    nicklasfrahm/mykilio
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="index.html" class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      <label class="md-nav__link" for="__nav_2">
+        Mykilio
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Mykilio" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Mykilio
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mykilio-overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mykilio-architecture.html" class="md-nav__link">
+        Architecture
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mykilio-resource-properties.html" class="md-nav__link">
+        Resource properties
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mykilio-core-api.html" class="md-nav__link">
+        Core API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mykilio-baremetal-api.html" class="md-nav__link">
+        Baremetal API
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="mykilio-miscellaneous.html" class="md-nav__link">
+        Miscellaneous
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      <label class="md-nav__link" for="__nav_3">
+        Cremini
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Cremini" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Cremini
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cremini-overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Management bus interface
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="cremini-management-bus-interface.html" class="md-nav__link md-nav__link--active">
+        Management bus interface
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#address-structure" class="md-nav__link">
+    Address structure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-framing" class="md-nav__link">
+    Data framing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-overview" class="md-nav__link">
+    Register overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Register overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-registers" class="md-nav__link">
+    Metadata registers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-registers" class="md-nav__link">
+    Status registers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specification-registers" class="md-nav__link">
+    Specification registers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-registers" class="md-nav__link">
+    Telemetry registers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-registers" class="md-nav__link">
+    Action registers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-description" class="md-nav__link">
+    Register description
+  </a>
+  
+    <nav class="md-nav" aria-label="Register description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sbcpon" class="md-nav__link">
+    SBCPON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sbcson" class="md-nav__link">
+    SBCSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fanmod" class="md-nav__link">
+    FANMOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fanfdb" class="md-nav__link">
+    FANFDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fanset" class="md-nav__link">
+    FANSET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fanman" class="md-nav__link">
+    FANMAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ledmod" class="md-nav__link">
+    LEDMOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ledfdb" class="md-nav__link">
+    LEDFDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ledset" class="md-nav__link">
+    LEDSET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ledman" class="md-nav__link">
+    LEDMAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actpcy" class="md-nav__link">
+    ACTPCY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actreb" class="md-nav__link">
+    ACTREB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actenu" class="md-nav__link">
+    ACTENU
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libraries" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="cremini-blade-atmega328p.html" class="md-nav__link">
+        Blade (ATmega328P)
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      <label class="md-nav__link" for="__nav_4">
+        Primo
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Primo" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Primo
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="primo-overview.html" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="contributing.html" class="md-nav__link">
+        Contributing
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#address-structure" class="md-nav__link">
+    Address structure
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-framing" class="md-nav__link">
+    Data framing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-overview" class="md-nav__link">
+    Register overview
+  </a>
+  
+    <nav class="md-nav" aria-label="Register overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#metadata-registers" class="md-nav__link">
+    Metadata registers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#status-registers" class="md-nav__link">
+    Status registers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#specification-registers" class="md-nav__link">
+    Specification registers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#telemetry-registers" class="md-nav__link">
+    Telemetry registers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action-registers" class="md-nav__link">
+    Action registers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#register-description" class="md-nav__link">
+    Register description
+  </a>
+  
+    <nav class="md-nav" aria-label="Register description">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sbcpon" class="md-nav__link">
+    SBCPON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sbcson" class="md-nav__link">
+    SBCSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fanmod" class="md-nav__link">
+    FANMOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fanfdb" class="md-nav__link">
+    FANFDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fanset" class="md-nav__link">
+    FANSET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fanman" class="md-nav__link">
+    FANMAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ledmod" class="md-nav__link">
+    LEDMOD
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ledfdb" class="md-nav__link">
+    LEDFDB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ledset" class="md-nav__link">
+    LEDSET
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ledman" class="md-nav__link">
+    LEDMAN
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actpcy" class="md-nav__link">
+    ACTPCY
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actreb" class="md-nav__link">
+    ACTREB
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#actenu" class="md-nav__link">
+    ACTENU
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#libraries" class="md-nav__link">
+    Libraries
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/nicklasfrahm/mykilio/edit/main/docs/cremini-management-bus-interface.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="management-bus-interface">Management bus interface<a class="headerlink" href="#management-bus-interface" title="Permanent link">&para;</a></h1>
+<p>With the default open-source firmware the individual blades can be controlled via a <a href="https://en.wikipedia.org/wiki/I%C2%B2C">TWI (I<sup>2</sup>C) communication bus</a>. The blades use <strong>5V CMOS logic levels</strong> for the TWI signals (SDA, SCL) on the management bus.</p>
+<h2 id="address-structure">Address structure<a class="headerlink" href="#address-structure" title="Permanent link">&para;</a></h2>
+<p>All registers are addressed via 8-bit addresses, which follow a common scheme as described in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>Bits</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[7:4]</td>
+<td>Data&nbsp;category</td>
+<td>A 4-bit identifier that corresponds to a <a href="mykilio-overview.html#data-category">data category</a>.</td>
+</tr>
+<tr>
+<td>[3:0]</td>
+<td>Register&nbsp;address</td>
+<td>A 4-bit address for a register within a <a href="mykilio-overview.html#data-category">data category</a>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="data-framing">Data framing<a class="headerlink" href="#data-framing" title="Permanent link">&para;</a></h2>
+<p>The reader is expected to have basic familiarity with the principles and bus states of TWI. SDA is the serial data line, while SCL is the serial clock line.</p>
+<p>A <em>signal</em> is a bus event, such as <strong>START</strong> or <strong>ACK</strong>, whereas an <em>operation</em> is the combination of signals between <strong>two START signals</strong> or the <strong>last START</strong> and the <strong>STOP signal</strong>. A <em>transaction</em> in contrast is the combination of signals between the <strong>first START</strong> and <strong>STOP signal</strong>.</p>
+<p>Independent of the fact if it is a read or a write <em>transaction</em>, the following operations are performed to interact with remote register via TWI.</p>
+<ol>
+<li>
+<p>The client sends <strong>START</strong> signal by pulling SDA low, while SCL is high.</p>
+</li>
+<li>
+<p>The client writes the <em>server address byte</em> to the bus, which specifies the server it would like to address. The least significant bit of this byte is the <strong>R/W bit</strong>. If it is set to <code>1</code> it indicates a read <em>operation</em>, whereas if it is set to <code>0</code>, it indicates a write <em>operation</em>.</p>
+</li>
+<li>
+<p>The server acknowledges the receival by pulling SDA low when SCL is high and therefore sending an <strong>ACK</strong> signal.</p>
+</li>
+<li>
+<p>The client sends the <em>register address byte</em> to the bus, which indicates the register address it wants to write to. This <strong>must</strong> be <code>0x00</code> if a read <em>transaction</em> is to be performed. Writing to register address <code>0x00</code>sets the _ <em>address pointer</em> on the server and thus indicating the location of the next read <em>operation</em>.</p>
+</li>
+<li>
+<p>The server sends an <strong>ACK</strong> signal.</p>
+</li>
+</ol>
+<p>a. If it is a <em>write transaction</em>, the following steps are performed after step 5:</p>
+<ol>
+<li>
+<p>The client sends <code>n</code> more <strong>data bytes</strong>, which are each acknowlegded by the server.</p>
+</li>
+<li>
+<p>The client sends a <strong>STOP</strong> condition by releasing the SDA line to a high signal, while SCL is high.</p>
+</li>
+</ol>
+<p>b. In contrast, if it is a <em>read transaction</em>, the following step are further performed after step 5:</p>
+<ol>
+<li>
+<p>The client sends a single <strong>data byte</strong> containing the register address to be read to the server and the server sends an <strong>ACK</strong> signal.</p>
+</li>
+<li>
+<p>The client sends another <strong>START</strong> signal, often also referred to as <strong>REPEATED START</strong> by pulling SDA low while SCL is high.</p>
+</li>
+<li>The client sends the <em>address byte</em> with the <strong>R/W</strong> bit set to <code>1</code> to indicate a read operation.</li>
+<li>
+<p>The server sends an <strong>ACK</strong> signal.</p>
+</li>
+<li>
+<p>Now the server sends <code>n</code> <strong>data bytes</strong>, which are each acknowlegded by the server with an <strong>ACK</strong> signal.</p>
+</li>
+<li>
+<p>The <em>transaction</em> is ended by the client sending a <strong>NACK</strong> signal to request the server to release the bus. This is then followed up by the client sending a <strong>STOP</strong> condition.</p>
+</li>
+</ol>
+<h2 id="register-overview">Register overview<a class="headerlink" href="#register-overview" title="Permanent link">&para;</a></h2>
+<p>This section describes all available register addresses that are part of the interface. The <em>Access</em> column specifies the access to the register, which can be either <strong>RW</strong> indicating <em>read-write</em> access or <strong>RO</strong> indicating <em>read-only</em> access. The <em>Datatype</em> column indirectly specifies the register length in <strong>bytes</strong> via the datatype expected to be read from or written to the specified register. All registers use most significant byte first byte ordering.</p>
+<h3 id="metadata-registers">Metadata registers<a class="headerlink" href="#metadata-registers" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Address</th>
+<th>Datatype</th>
+<th>Access</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ADRPTR</td>
+<td>0x00</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>Address pointer</td>
+<td>The register address of the next read or write operation.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="status-registers">Status registers<a class="headerlink" href="#status-registers" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Address</th>
+<th>Datatype</th>
+<th>Access</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BMCSTA</td>
+<td>0x10</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>BMC<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> state</td>
+<td>The state of the baseboard management controller enumerated as described <a href="mykilio-resource-properties.html#state">here</a>.</td>
+</tr>
+<tr>
+<td>SBCSTA</td>
+<td>0x11</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>SBC<sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup> state</td>
+<td>The state of the single board controller enumerated as described <a href="mykilio-resource-properties.html#state">here</a>.</td>
+</tr>
+<tr>
+<td>PSUSTA</td>
+<td>0x12</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>PSU<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">3</a></sup> state</td>
+<td>The state of the external power supply enumerated as described <a href="mykilio-resource-properties.html#state">here</a>.</td>
+</tr>
+<tr>
+<td>FANDCC</td>
+<td>0x13</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>DC<sup id="fnref:4"><a class="footnote-ref" href="#fn:4">4</a></sup> fan state</td>
+<td>The state of the DC controlled fan enumerated as described <a href="mykilio-resource-properties.html#state">here</a>.</td>
+</tr>
+<tr>
+<td>FANPWM</td>
+<td>0x14</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>PWM<sup id="fnref:5"><a class="footnote-ref" href="#fn:5">5</a></sup> fan state</td>
+<td>The state of the PWM controlled fan enumerated as described <a href="mykilio-resource-properties.html#state">here</a>.</td>
+</tr>
+<tr>
+<td>FANMIN</td>
+<td>0x15</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>Minimum fan speed</td>
+<td>The minimum rotational speed of the fan in Hertz before entering the stop band.</td>
+</tr>
+<tr>
+<td>FANMAX</td>
+<td>0x16</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>Maximum fan speed</td>
+<td>The maximum rotational speed of the fan in Hertz at full power.</td>
+</tr>
+<tr>
+<td>DUTMIN</td>
+<td>0x17</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>Minimum fan duty</td>
+<td>The minimum duty cycle of the fan control signal before entering the stop band.</td>
+</tr>
+<tr>
+<td>DUTMAX</td>
+<td>0x18</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>Maximum fan duty</td>
+<td>The maximum duty cycle of the fan control signal at full power.</td>
+</tr>
+<tr>
+<td>BMCCPU</td>
+<td>0x19</td>
+<td><code>char[16]</code></td>
+<td>RO</td>
+<td>BMC CPU<sup id="fnref:6"><a class="footnote-ref" href="#fn:6">6</a></sup></td>
+<td>A string providing the CPU name of the BMC.</td>
+</tr>
+<tr>
+<td>BMCFWN</td>
+<td>0x20</td>
+<td><code>char[16]</code></td>
+<td>RO</td>
+<td>BMC firmware name</td>
+<td>A string providing the name of the installed firmware.</td>
+</tr>
+<tr>
+<td>BMCFWV</td>
+<td>0x21</td>
+<td><code>char[16]</code></td>
+<td>RO</td>
+<td>BMC firmware version</td>
+<td>A string providing the semantic version of the firmware.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="specification-registers">Specification registers<a class="headerlink" href="#specification-registers" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Address</th>
+<th>Datatype</th>
+<th>Access</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#sbcpon">SBCPON</a></td>
+<td>0x30</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>SBC power-on</td>
+<td>The desired state of the single-board computer power rail enumerated as described <a href="mykilio-resource-properties.html#state">here</a>.</td>
+</tr>
+<tr>
+<td><a href="#sbcson">SBCSON</a></td>
+<td>0x31</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>SBC soft-on</td>
+<td>The desired state of the single-board computer enumerated as described <a href="mykilio-resource-properties.html#state">here</a>.</td>
+</tr>
+<tr>
+<td><a href="#fanmod">FANMOD</a></td>
+<td>0x32</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>Fan control mode</td>
+<td>The mode used to control the fan enumerated as described <a href="#fanmod">here</a>.</td>
+</tr>
+<tr>
+<td><a href="#fanfdb">FANFDB</a></td>
+<td>0x33</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>Fan feedback source</td>
+<td>The feedback source of the automatic fan control mode as described <a href="#fanfdb">here</a>.</td>
+</tr>
+<tr>
+<td><a href="#fanset">FANSET</a></td>
+<td>0x34</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>Fan setpoint</td>
+<td>The sensor range percentage at which the fan should run with full speed.</td>
+</tr>
+<tr>
+<td><a href="#fanman">FANMAN</a></td>
+<td>0x35</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>Fan manual setpoint</td>
+<td>The duty setpoint for the fan in manual mode.</td>
+</tr>
+<tr>
+<td><a href="#ledmod">LEDMOD</a></td>
+<td>0x36</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>LED control mode</td>
+<td>The mode used to control the LED enumerated as described <a href="#ledmod">here</a>.</td>
+</tr>
+<tr>
+<td><a href="#fanfdb">LEDFDB</a></td>
+<td>0x37</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>LED feedback source</td>
+<td>The feedback source of the automatic LED control mode as described <a href="#ledfdb">here</a>.</td>
+</tr>
+<tr>
+<td><a href="#fanset">LEDSET</a></td>
+<td>0x38</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>LED setpoint</td>
+<td>The sensor range percentage at which the LED should light up with full brightness.</td>
+</tr>
+<tr>
+<td><a href="#fanman">LEDMAN</a></td>
+<td>0x39</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>LED manual setpoint</td>
+<td>The duty setpoint for the LED in manual mode.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="telemetry-registers">Telemetry registers<a class="headerlink" href="#telemetry-registers" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Address</th>
+<th>Datatype</th>
+<th>Access</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FANSPD</td>
+<td>0x50</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>Fan speed</td>
+<td>The current fan speed in Hertz.</td>
+</tr>
+<tr>
+<td>FANDUT</td>
+<td>0x51</td>
+<td><code>uint8</code></td>
+<td>RO</td>
+<td>Fan duty cycle</td>
+<td>The current fan duty cycle.</td>
+</tr>
+<tr>
+<td>BMCVOL</td>
+<td>0x52</td>
+<td><code>float</code></td>
+<td>RO</td>
+<td>BMC voltage</td>
+<td>The current drawn by the baseboard management controller and all other electronics.</td>
+</tr>
+<tr>
+<td>BMCCUR</td>
+<td>0x53</td>
+<td><code>float</code></td>
+<td>RO</td>
+<td>BMC current</td>
+<td>The voltage supplied to the baseboard management controller and all other electronics.</td>
+</tr>
+<tr>
+<td>SBCVOL</td>
+<td>0x54</td>
+<td><code>float</code></td>
+<td>RO</td>
+<td>SBC voltage</td>
+<td>The current drawn by the single-board computer.</td>
+</tr>
+<tr>
+<td>SBCCUR</td>
+<td>0x55</td>
+<td><code>float</code></td>
+<td>RO</td>
+<td>SBC current</td>
+<td>The voltage supplied to the single-board computer.</td>
+</tr>
+<tr>
+<td>TMPAMB</td>
+<td>0x56</td>
+<td><code>float</code></td>
+<td>RO</td>
+<td>Ambient temperature</td>
+<td>The ambient temperature.</td>
+</tr>
+<tr>
+<td>TMPPSU</td>
+<td>0x57</td>
+<td><code>float</code></td>
+<td>RO</td>
+<td>PSU temperature</td>
+<td>The temperature of the power supply or the VIN rail trace and is based on the backplane.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="action-registers">Action registers<a class="headerlink" href="#action-registers" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Register</th>
+<th>Address</th>
+<th>Datatype</th>
+<th>Access</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="#actpcy">ACTPCY</a></td>
+<td>0x70</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>Power-cycle action</td>
+<td>Power-cycle the single-board computer by disconnecting and reconnecting the power.</td>
+</tr>
+<tr>
+<td><a href="#actreb">ACTREB</a></td>
+<td>0x71</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>Reboot action</td>
+<td>Reboot the single-board computer by halting it via GPIO<sup id="fnref:7"><a class="footnote-ref" href="#fn:7">7</a></sup> and restarting it.</td>
+</tr>
+<tr>
+<td><a href="#actenu">ACTENU</a></td>
+<td>0x72</td>
+<td><code>uint8</code></td>
+<td>RW</td>
+<td>Hardware enumeration action</td>
+<td>Enumerate the connected hardware and update the status.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="register-description">Register description<a class="headerlink" href="#register-description" title="Permanent link">&para;</a></h2>
+<p>The following section explains more detailed how the register values are to be interpreted.</p>
+<h3 id="sbcpon">SBCPON<a class="headerlink" href="#sbcpon" title="Permanent link">&para;</a></h3>
+<p>This register controls the power rail of the single-board computer. Writing a value of <code>M6M_STATE_DISABLED</code> or <code>2</code> to this register will disable the power rail, while writing a value of <code>M6M_STATE_ENABLED</code> or <code>3</code> to the register will enable the power rail. Other values are ignored and have no effect.</p>
+<!-- prettier-ignore -->
+<div class="admonition danger">
+<p class="admonition-title">Danger: Potential data loss</p>
+<p>Interrupting power without shutting the single-board computer down may cause data loss, especially if the storage medium is an SD card. Please consider using the soft-on (<a href="#sbcson">SBCSON</a>) register instead.</p>
+</div>
+<h3 id="sbcson">SBCSON<a class="headerlink" href="#sbcson" title="Permanent link">&para;</a></h3>
+<p>This register controls the system state of the single board computer via a GPIO. Writing a value of <code>M6M_STATE_DISABLED</code> or <code>2</code> to this register will ensure that the single-board computer is off, while writing a value of <code>M6M_STATE_ENABLED</code> or <code>3</code> to the register will ensure that the single-board computer is on.</p>
+<!-- prettier-ignore -->
+<div class="admonition note">
+<p class="admonition-title">Note: Limited support</p>
+<p>Not all single board computers support this. Currently this is only known to be working for the Raspberry Pi with the <a href="https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README#L1015"><code>gpio-shutdown</code> devicetree overlay</a>.</p>
+</div>
+<h3 id="fanmod">FANMOD<a class="headerlink" href="#fanmod" title="Permanent link">&para;</a></h3>
+<p>The fan control mode of the fan can be automatic, where <code>x</code> is the feedback signal as configured by <a href="#fanfdb">FANFDB</a> and <code>a</code> is automatically calculated based on the configuration of the fan setpoint (<a href="#fanset">FANSET</a>) register.</p>
+<table>
+<thead>
+<tr>
+<th>Mode</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Off</td>
+<td>0</td>
+<td>The fan is disabled.</td>
+</tr>
+<tr>
+<td>Manual</td>
+<td>1</td>
+<td>The fan is controlled by writing a value to the <a href="#fanman">FANMAN</a> register.</td>
+</tr>
+<tr>
+<td>Linear</td>
+<td>2</td>
+<td>The fan is controlled according to the function <code>f(x) = a*x</code>.</td>
+</tr>
+<tr>
+<td>SquareRoot</td>
+<td>3</td>
+<td>The fan is controlled according to the function <code>f(x) = a*sqrt(x)</code>.</td>
+</tr>
+<tr>
+<td>Quadratic</td>
+<td>4</td>
+<td>The fan is controlled according to the function <code>f(x) = a*x^2</code>.</td>
+</tr>
+<tr>
+<td>Exponential</td>
+<td>5</td>
+<td>The fan is controlled according to the function <code>f(x) = a*e^x</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fanfdb">FANFDB<a class="headerlink" href="#fanfdb" title="Permanent link">&para;</a></h3>
+<p>The fan feedback source that is used to compute the duty for any fan control mode other than <em>Off</em> or <em>Manual</em>.</p>
+<table>
+<thead>
+<tr>
+<th>Feedback source</th>
+<th>Value</th>
+<th>Minimum sensor value</th>
+<th>Maximum sensor value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ambient temperature</td>
+<td>0</td>
+<td>0°C</td>
+<td>100°C</td>
+</tr>
+<tr>
+<td>PSU temperature</td>
+<td>1</td>
+<td>0°C</td>
+<td>100°C</td>
+</tr>
+<tr>
+<td>BMC current</td>
+<td>2</td>
+<td>0A</td>
+<td>5A</td>
+</tr>
+<tr>
+<td>SBC current</td>
+<td>3</td>
+<td>0A</td>
+<td>5A</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fanset">FANSET<a class="headerlink" href="#fanset" title="Permanent link">&para;</a></h3>
+<p>The fan setpoint configures the value at which the fan will run with full speed. This value is used to compute the parameter <code>a</code> if the fan control mode (<a href="#fanmod">FANMOD</a>) is not <em>Off</em> or <em>Manual</em>. The fan setpoint is a percentage of the full-range sensor maximum and therefore unitless irrespective of which feedback source (<a href="#fanfdb">FANFDB</a>) is selected.</p>
+<!-- prettier-ignore -->
+<div class="admonition example">
+<p class="admonition-title">Example: Controlling the fan based on a temperature measurement</p>
+<p>Let's assume that we want don't want our CPU to overheat. Our requirement is that we want to run the fan at full speed if the ambient temperature sensor reads a value above 40°C.</p>
+<p>The maximum sensor value is of this sensor is 100°C as described <a href="#fanfdb">here</a>. To determine the register value, we can use the following code:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">calc_fanset</span><span class="p">(</span><span class="kt">float</span> <span class="n">setpoint</span><span class="p">,</span> <span class="kt">float</span> <span class="n">sensor_max</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">setpoint_percent</span> <span class="o">=</span> <span class="n">setpoint</span> <span class="o">/</span> <span class="n">sensor_max</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">floor</span><span class="p">(</span><span class="n">setpoint_percent</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">temperature_setpoint</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">sensor_max</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Full-speed temperature: %.0f°C</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">temperature_setpoint</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Fan setpoint: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">calc_fanset</span><span class="p">(</span><span class="n">temperature_setpoint</span><span class="p">,</span> <span class="n">sensor_max</span><span class="p">));</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Create a file called <code>calc.c</code>, paste the code above and run <code>gcc -o calc calc.c -lm &amp;&amp; ./calc &amp;&amp; rm calc</code>. You should get the following output:</p>
+<div class="highlight"><pre><span></span><code>Full-speed temperature: 40°C
+Fan setpoint: 102
+</code></pre></div>
+<p>By writing the value <code>102</code> to our <a href="#fanset">FANSET</a> register, the fan will now run on full speed if the sensor reads 40°C.</p>
+</div>
+<!-- prettier-ignore -->
+<div class="admonition example">
+<p class="admonition-title">Example: Controlling the fan based on compute load</p>
+<p>Let's assume that we want to run our fan based on the compute load of the single board computer. We can indirectly measure the load by observing the current draw, so our requirement is that we our fan to run at full speed if the current sensor reads a value above 1.5A.</p>
+<p>The maximum sensor value is of this sensor is 5A as described <a href="#fanfdb">here</a>. To determine the register value, we can use the following code:</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="cp">#include</span> <span class="cpf">&lt;math.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">calc_fanset</span><span class="p">(</span><span class="kt">float</span> <span class="n">setpoint</span><span class="p">,</span> <span class="kt">float</span> <span class="n">sensor_max</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">setpoint_percent</span> <span class="o">=</span> <span class="n">setpoint</span> <span class="o">/</span> <span class="n">sensor_max</span><span class="p">;</span>
+  <span class="k">return</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">floor</span><span class="p">(</span><span class="n">setpoint_percent</span> <span class="o">*</span> <span class="mi">255</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kt">float</span> <span class="n">current_setpoint</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">;</span>
+  <span class="kt">float</span> <span class="n">sensor_max</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Full-speed power: %.1fW</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">current_setpoint</span> <span class="o">*</span> <span class="mi">5</span><span class="p">);</span>
+  <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Fan setpoint: %d</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">calc_fanset</span><span class="p">(</span><span class="n">current_setpoint</span><span class="p">,</span> <span class="n">sensor_max</span><span class="p">));</span>
+
+  <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+</td></tr></table>
+<p>Create a file called <code>calc.c</code>, paste the code above and run <code>gcc -o calc calc.c -lm &amp;&amp; ./calc &amp;&amp; rm calc</code>. You should get the following output:</p>
+<div class="highlight"><pre><span></span><code>Full-speed power: 7.5W
+Fan setpoint: 76
+</code></pre></div>
+<p>By writing the value <code>76</code> to our <a href="#fanset">FANSET</a> register, the fan will now run on full speed if the sensor reads 1.5A.</p>
+</div>
+<h3 id="fanman">FANMAN<a class="headerlink" href="#fanman" title="Permanent link">&para;</a></h3>
+<p>Writing a value to this register will set the duty of the fan if the fan mode (<a href="#fanmod">FANMOD</a>) is set to <em>Manual</em>. <code>0</code> corresponds to a duty of 0%, while <code>255</code> corresponds to 100%. Any value between <code>0</code> and <code>255</code> is valid.</p>
+<h3 id="ledmod">LEDMOD<a class="headerlink" href="#ledmod" title="Permanent link">&para;</a></h3>
+<p>Please use the <a href="#fanmod">FANMOD</a> register configuration reference as the LED control mode register accepts the same options.</p>
+<h3 id="ledfdb">LEDFDB<a class="headerlink" href="#ledfdb" title="Permanent link">&para;</a></h3>
+<p>Please use the <a href="#fanfdb">FANFDB</a> register configuration reference as the LED feedback source register accepts the same options.</p>
+<h3 id="ledset">LEDSET<a class="headerlink" href="#ledset" title="Permanent link">&para;</a></h3>
+<p>Please use the <a href="#fanset">FANSET</a> register configuration reference as the LED setpoint register accepts the same options.</p>
+<h3 id="ledman">LEDMAN<a class="headerlink" href="#ledman" title="Permanent link">&para;</a></h3>
+<p>Please use the <a href="#fanman">FANMAN</a> register configuration reference as the LED manual override register accepts the same options.</p>
+<h3 id="actpcy">ACTPCY<a class="headerlink" href="#actpcy" title="Permanent link">&para;</a></h3>
+<p>Writing any value other than <code>0</code> to this register will issue a power-cycle of the single-board computer.</p>
+<!-- prettier-ignore -->
+<div class="admonition danger">
+<p class="admonition-title">Danger: Potential data loss</p>
+<p>Issuing a power-cycle may cause data loss, especially if the storage medium is an SD card. Please consider using the reboot action (<a href="#actreb">ACTREB</a>) instead.</p>
+</div>
+<h3 id="actreb">ACTREB<a class="headerlink" href="#actreb" title="Permanent link">&para;</a></h3>
+<p>Writing any value other than <code>0</code> to this register will issue a soft reboot of the single-board computer using a GPIO pin.</p>
+<!-- prettier-ignore -->
+<div class="admonition note">
+<p class="admonition-title">Note: Limited support</p>
+<p>Not all single board computers support this. Currently this is only known to be working for the Raspberry Pi with the <a href="https://github.com/raspberrypi/firmware/blob/master/boot/overlays/README#L1015"><code>gpio-shutdown</code> devicetree overlay</a>.</p>
+</div>
+<h3 id="actenu">ACTENU<a class="headerlink" href="#actenu" title="Permanent link">&para;</a></h3>
+<p>Writing any value other than <code>0</code> to this register will start an enumeration process that will gather the information for most of the <a href="#status-registers">status registers</a> described earlier.</p>
+<h2 id="libraries">Libraries<a class="headerlink" href="#libraries" title="Permanent link">&para;</a></h2>
+<p>To interface with the blade via the management bus interface, the following libraries are provided:</p>
+<ul>
+<li><strong>C / C++:</strong> <a href="https://github.com/nicklasfrahm/mykilio/blob/main/embedded/lib/mushroom.h"><code>mushroom.h</code></a>.</li>
+</ul>
+<!-- Glossary -->
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><strong>BMC:</strong> <a href="https://en.wikipedia.org/wiki/Intelligent_Platform_Management_Interface#Baseboard_management_controller">baseboard management controller</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p><strong>SBC:</strong> <a href="https://en.wikipedia.org/wiki/Single-board_computer">single-board computer</a>&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><strong>PSU:</strong> <a href="https://en.wikipedia.org/wiki/Power_supply">power supply unit</a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p><strong>DC:</strong> <a href="https://en.wikipedia.org/wiki/Direct_current">direct current</a>&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+<li id="fn:5">
+<p><strong>PWM:</strong> <a href="https://en.wikipedia.org/wiki/Pulse-width_modulation">pulse-width modulation</a>&#160;<a class="footnote-backref" href="#fnref:5" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+</li>
+<li id="fn:6">
+<p><strong>CPU:</strong> <a href="https://en.wikipedia.org/wiki/Central_processing_unit">central processing unit</a>&#160;<a class="footnote-backref" href="#fnref:6" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+</li>
+<li id="fn:7">
+<p><strong>GPIO:</strong> <a href="https://en.wikipedia.org/wiki/General-purpose_input/output">general-purpose input/output</a>&#160;<a class="footnote-backref" href="#fnref:7" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+          <a href="#" class="md-top md-icon" data-md-component="top" data-md-state="hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12z"/></svg>
+          </a>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        <a href="cremini-overview.html" class="md-footer__link md-footer__link--prev" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Overview
+            </div>
+          </div>
+        </a>
+      
+      
+        <a href="cremini-blade-atmega328p.html" class="md-footer__link md-footer__link--next" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Blade (ATmega328P)
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.tabs", "navigation.top"], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "assets/javascripts/workers/search.fe42c31b.min.js", "version": null}</script>
+    
+    
+      <script src="assets/javascripts/bundle.4ea5477f.min.js"></script>
+      
+    
+  </body>
+</html>
